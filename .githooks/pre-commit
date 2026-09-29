@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+# Rebuilds the minified assets index.html actually loads, and stages them.
+# Sources are committed as-is; the .min files are the ones GitHub Pages serves.
+set -e
+
+# A minified file built from a different revision of its source would ship a
+# stale asset, so refuse to build when a source is edited but not staged.
+if ! git diff --quiet -- script.js style.css; then
+  echo "pre-commit: stage or discard your changes to script.js / style.css first" >&2
+  exit 1
+fi
+
+bunx esbuild script.js --minify --outfile=script.min.js --log-level=warning
+bunx esbuild style.css --minify --outfile=style.min.css --log-level=warning
+
+git add script.min.js style.min.css
