@@ -171,6 +171,12 @@ main {
   max-width: 42rem;
 }
 
+/* Links in running text need a cue beyond color (WCAG 1.4.1). */
+.lede a,
+.lede-muted a {
+  text-decoration: underline;
+}
+
 .cta {
   display: flex;
   flex-wrap: wrap;
@@ -224,6 +230,7 @@ main {
 /* Project cards */
 
 .grid {
+  align-items: start;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
