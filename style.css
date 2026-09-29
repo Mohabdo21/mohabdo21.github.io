@@ -109,8 +109,7 @@ h3 {
 }
 
 .topbar-inner,
-main,
-footer {
+main {
   max-width: 60rem;
   margin: 0 auto;
   padding: 0 1.25rem;
@@ -158,14 +157,6 @@ main {
 
 .hero {
   padding: 3.5rem 0 2.5rem;
-}
-
-.eyebrow {
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.75rem;
-  text-transform: uppercase;
 }
 
 .lede {
@@ -282,10 +273,6 @@ main {
   padding: 0.1rem 0.45rem;
 }
 
-.stars {
-  color: var(--muted);
-}
-
 /* Project list */
 
 .list {
@@ -327,20 +314,6 @@ main {
 
 .contact li {
   padding: 0.2rem 0;
-}
-
-footer {
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.85rem;
-  padding-bottom: 2.5rem;
-  padding-top: 1.5rem;
-}
-
-@media (max-width: 30rem) {
-  .topbar-actions a {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
