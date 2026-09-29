@@ -1,0 +1,191 @@
+<!doctype html>
+<!--
+  Source for ../og.png, the 1200x630 link preview card. Not linked from the site.
+
+  Regenerate, from the site root:
+    python3 -m http.server 8899
+    chromium --headless=new --force-dark-mode --window-size=1200,717 \
+      --screenshot=og-raw.png http://127.0.0.1:8899/.og-source.html
+    magick og-raw.png -crop 1200x630+0+0 +repage og.png
+    magick og.png -strip -define png:compression-level=9 og.png
+
+  It links the real style.css, so the palette, type and pipe are the shipped ones.
+  Two things are load-bearing, and both were wrong once:
+  - data-theme must be set. The tokens hang off :root[data-theme=...] and not off
+    a bare :root, so with no attribute every var() is invalid and the card is white.
+  - the moving layers must be named: `*` does not match a pseudo-element, so a
+    `.pipe *` reset leaves ::before and ::after animating and the capture lands in
+    the blank phase with no trace.
+-->
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>og</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        inline-size: 1200px;
+        block-size: 630px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-body);
+      }
+      .card {
+        position: relative;
+        box-sizing: border-box;
+        inline-size: 1200px;
+        block-size: 630px;
+        padding: 60px 72px 46px;
+        display: flex;
+        flex-direction: column;
+      }
+      /* Faint measurement grid, faded out towards the top right. */
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, var(--line) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+        background-size: 60px 60px;
+        opacity: 0.5;
+        -webkit-mask-image: radial-gradient(
+          120% 100% at 0% 100%,
+          #000 0%,
+          transparent 72%
+        );
+        mask-image: radial-gradient(
+          120% 100% at 0% 100%,
+          #000 0%,
+          transparent 72%
+        );
+      }
+      .card > * {
+        position: relative;
+      }
+
+      .rule {
+        inline-size: 64px;
+        block-size: 3px;
+        background: var(--accent);
+        margin-block-end: 18px;
+      }
+      .eyebrow {
+        color: var(--ink-3);
+        font-family: var(--font-display);
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .name {
+        margin-block: 20px 0;
+        font-family: var(--font-display);
+        font-size: 86px;
+        font-weight: 700;
+        line-height: 1.02;
+        letter-spacing: -0.01em;
+      }
+      .name span {
+        display: block;
+        color: var(--ink-3);
+      }
+      .sub {
+        margin-block: 18px 0;
+        color: var(--ink-2);
+        font-size: 22px;
+        line-height: 1.45;
+        max-inline-size: 60ch;
+      }
+
+      /* The shipped pipe, at rest. */
+      .pipe {
+        margin-block-start: 40px;
+        border: 0;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+      }
+      .pipe__cap {
+        margin-block-end: 1.1rem;
+      }
+      .pipe__path::before,
+      .pipe__path::after,
+      .pipe__node::before {
+        animation: none !important;
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-block-start: auto;
+        padding-block-start: 26px;
+        color: var(--ink-3);
+        font-family: var(--font-mono);
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="rule"></div>
+      <p class="eyebrow">Backend and Platform Engineer</p>
+      <h1 class="name">Mohannad Abdulaziz<span>Babeker</span></h1>
+      <p class="sub">
+        Go, Python and TypeScript in production. Docker, CI/CD, Kubernetes,
+        Linux.
+      </p>
+
+      <figure class="pipe">
+        <figcaption class="pipe__cap">
+          <span>Data path, ITSQ production platform</span>
+          <span class="pipe__stat">7 hops, 2M+ records a day</span>
+        </figcaption>
+        <ol class="pipe__path" style="--n: 7">
+          <li class="pipe__node pipe__node--edge" style="--i: 0">LoRaWAN</li>
+          <li class="pipe__node" style="--i: 1">MQTT</li>
+          <li class="pipe__node" style="--i: 2">RabbitMQ</li>
+          <li class="pipe__node" style="--i: 3">Go</li>
+          <li class="pipe__node" style="--i: 4">TimescaleDB</li>
+          <li class="pipe__node" style="--i: 5">SSE</li>
+          <li class="pipe__node" style="--i: 6">Dashboard</li>
+        </ol>
+      </figure>
+
+      <p class="foot">
+        <span>13 years in IT, software engineering since 2023</span>
+        <span>mohabdo21.github.io</span>
+      </p>
+    </div>
+
+    <!-- Geometry readout, so the rendered card can be checked without eyeballing
+         it. Never displayed. Dump the DOM and read the title. -->
+    <script>
+      (function () {
+        var p = document.querySelector(".pipe__path");
+        var r = p.getBoundingClientRect();
+        var n = 7,
+          c = r.width / n;
+        document.title =
+          "GEO::" +
+          [
+            "trackLeft=" + r.left.toFixed(1),
+            "trackRight=" + r.right.toFixed(1),
+            "trackBottom=" + r.bottom.toFixed(1),
+            "cell=" + c.toFixed(1),
+            "firstTickX=" + (r.left + c / 2).toFixed(1),
+            "lastTickX=" + (r.left + (n - 0.5) * c).toFixed(1),
+            "anims=" + document.getAnimations().length,
+          ].join(" ");
+      })();
+    </script>
+  </body>
+</html>

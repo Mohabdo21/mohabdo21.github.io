@@ -1,936 +1,1107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Mohannad Abdulaziz Babeker - Backend and Platform Engineer</title>
-<meta name="description" content="Backend and platform engineer, 13 years in IT. Go, Python and TypeScript services in production, and the pipelines and observability that keep them up.">
-<meta name="author" content="Mohannad Abdulaziz Babeker">
-<meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f3f5f8" media="(prefers-color-scheme: light)">
-<meta name="color-scheme" content="dark light">
+    <title>Mohannad Abdulaziz Babeker - Backend and Platform Engineer</title>
+    <meta
+      name="description"
+      content="Backend and platform engineer, 13 years in IT. Go, Python and TypeScript services in production, and the pipelines and observability that keep them up."
+    />
+    <meta name="author" content="Mohannad Abdulaziz Babeker" />
+    <meta
+      name="theme-color"
+      content="#0e1116"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#f3f5f8"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta name="color-scheme" content="dark light" />
 
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Mohannad Abdulaziz Babeker - Backend and Platform Engineer">
-<meta property="og:description" content="Go, Python and TypeScript services in production, and the containers, pipelines and observability that run them.">
-<meta property="og:url" content="https://mohabdo21.github.io/">
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:title"
+      content="Mohannad Abdulaziz Babeker - Backend and Platform Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Go, Python and TypeScript services in production, and the containers, pipelines and observability that run them."
+    />
+    <meta property="og:url" content="https://mohabdo21.github.io/" />
+    <meta property="og:image" content="https://mohabdo21.github.io/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Mohannad Abdulaziz Babeker, backend and platform engineer, above a trace of the ITSQ data path from LoRaWAN through Go and TimescaleDB to a live dashboard."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="canonical" href="https://mohabdo21.github.io/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="fonts/plexsans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/plexsanscondensed-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://mohabdo21.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/plexsans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/plexsanscondensed-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mohannad Abdulaziz Babeker",
-  "jobTitle": "Backend and Platform Engineer",
-  "email": "mailto:mohannadabdo21@hotmail.com",
-  "telephone": "+971 56 255 3628",
-  "url": "https://mohabdo21.github.io/",
-  "sameAs": [
-    "https://www.linkedin.com/in/mohannad-abdul-aziz-babeker",
-    "https://github.com/Mohabdo21"
-  ]
-}
-</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohannad Abdulaziz Babeker",
+        "jobTitle": "Backend and Platform Engineer",
+        "email": "mailto:mohannadabdo21@hotmail.com",
+        "url": "https://mohabdo21.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/mohannad-abdul-aziz-babeker",
+          "https://github.com/Mohabdo21"
+        ]
+      }
+    </script>
 
-<script>
-  // Resolve the theme before first paint so there is no flash of the wrong palette.
-  (function () {
-    var stored;
-    try { stored = localStorage.getItem("theme"); } catch (e) { /* private mode */ }
-    var theme = stored || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-    document.documentElement.dataset.theme = theme;
-  })();
-</script>
-</head>
+    <script>
+      // Resolve the theme before first paint so there is no flash of the wrong palette.
+      (function () {
+        var stored;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {
+          /* private mode */
+        }
+        var theme =
+          stored ||
+          (matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
 
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Mobile bar ------------------------------------------------------------- -->
-<div class="bar">
-  <div class="bar__inner">
-    <a class="bar__mark" href="#top">Mohannad Babeker</a>
-    <button class="bar__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
-      Sections
-    </button>
-  </div>
-  <div class="bar__panel" id="nav-panel">
+    <!-- Mobile bar ------------------------------------------------------------- -->
+    <div class="bar">
+      <div class="bar__inner">
+        <a class="bar__mark" href="#top">Mohannad Babeker</a>
+        <button
+          class="bar__toggle"
+          id="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-panel"
+        >
+          Sections
+        </button>
+      </div>
+      <div class="bar__panel" id="nav-panel">
+        <div class="shell">
+          <nav class="rail__nav" aria-label="Sections">
+            <a class="rail__link" href="#work">Work</a>
+            <a class="rail__link" href="#stack">Stack</a>
+            <a class="rail__link" href="#operations">Operations</a>
+            <a class="rail__link" href="#earlier">Earlier</a>
+            <a class="rail__link" href="#source">Open source</a>
+            <a class="rail__link" href="#education">Education</a>
+            <a class="rail__link" href="#contact">Contact</a>
+          </nav>
+          <div class="bar__contact">
+            <a href="mailto:mohannadabdo21@hotmail.com"
+              >mohannadabdo21@hotmail.com</a
+            >
+            <a href="https://github.com/Mohabdo21">github.com/Mohabdo21</a>
+            <button class="theme-btn" type="button" data-theme-toggle>
+              Switch to light
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="shell">
-      <nav class="rail__nav" aria-label="Sections">
-        <a class="rail__link" href="#work">Work</a>
-        <a class="rail__link" href="#stack">Stack</a>
-        <a class="rail__link" href="#operations">Operations</a>
-        <a class="rail__link" href="#earlier">Earlier</a>
-        <a class="rail__link" href="#source">Open source</a>
-        <a class="rail__link" href="#education">Education</a>
-        <a class="rail__link" href="#contact">Contact</a>
-      </nav>
-      <div class="bar__contact">
-        <a href="mailto:mohannadabdo21@hotmail.com">mohannadabdo21@hotmail.com</a>
-        <a href="tel:+971562553628">+971 56 255 3628</a>
-        <a href="https://github.com/Mohabdo21">github.com/Mohabdo21</a>
-        <button class="theme-btn" type="button" data-theme-toggle>Switch to light</button>
-      </div>
-    </div>
-  </div>
-</div>
+      <!-- Rail ----------------------------------------------------------------- -->
+      <aside class="rail">
+        <div>
+          <a class="rail__mark" href="#top">Mohannad Abdulaziz Babeker</a>
+          <span class="rail__role">Backend and Platform Engineer</span>
+        </div>
 
-<div class="shell">
+        <nav class="rail__nav" aria-label="Sections">
+          <a class="rail__link" href="#work">Work</a>
+          <a class="rail__link" href="#stack">Stack</a>
+          <a class="rail__link" href="#operations">Operations</a>
+          <a class="rail__link" href="#earlier">Earlier</a>
+          <a class="rail__link" href="#source">Open source</a>
+          <a class="rail__link" href="#education">Education</a>
+          <a class="rail__link" href="#contact">Contact</a>
+        </nav>
 
-  <!-- Rail ----------------------------------------------------------------- -->
-  <aside class="rail">
-    <div>
-      <a class="rail__mark" href="#top">Mohannad Abdulaziz Babeker</a>
-      <span class="rail__role">Backend and Platform Engineer</span>
-    </div>
+        <div class="rail__foot">
+          <a href="mailto:mohannadabdo21@hotmail.com"
+            >mohannadabdo21@hotmail.com</a
+          >
+          <a href="https://www.linkedin.com/in/mohannad-abdul-aziz-babeker"
+            >LinkedIn</a
+          >
+          <a href="https://github.com/Mohabdo21">GitHub</a>
+          <button class="theme-btn" type="button" data-theme-toggle>
+            Switch to light
+          </button>
+        </div>
+      </aside>
 
-    <nav class="rail__nav" aria-label="Sections">
-      <a class="rail__link" href="#work">Work</a>
-      <a class="rail__link" href="#stack">Stack</a>
-      <a class="rail__link" href="#operations">Operations</a>
-      <a class="rail__link" href="#earlier">Earlier</a>
-      <a class="rail__link" href="#source">Open source</a>
-      <a class="rail__link" href="#education">Education</a>
-      <a class="rail__link" href="#contact">Contact</a>
-    </nav>
+      <main class="main" id="main">
+        <!-- Hero -------------------------------------------------------------- -->
+        <section class="hero" id="top">
+          <p class="hero__eyebrow">Software engineering since 2023</p>
+          <h1 class="hero__title">
+            I build the services,<span>then I make sure they stay up.</span>
+          </h1>
+          <p class="hero__sub">
+            Go, Python and TypeScript on the backend. Docker, CI/CD, Kubernetes,
+            Linux and observability on the platform side. Shipped work in
+            production for IoT telemetry, AI document analysis and real-time
+            search.
+          </p>
+          <p class="hero__actions">
+            <a class="btn" href="#work">See the work</a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          </p>
 
-    <div class="rail__foot">
-      <a href="mailto:mohannadabdo21@hotmail.com">mohannadabdo21@hotmail.com</a>
-      <a href="https://www.linkedin.com/in/mohannad-abdul-aziz-babeker">LinkedIn</a>
-      <a href="https://github.com/Mohabdo21">GitHub</a>
-      <button class="theme-btn" type="button" data-theme-toggle>Switch to light</button>
-    </div>
-  </aside>
+          <figure class="pipe">
+            <figcaption class="pipe__cap">
+              <span>Data path, ITSQ production platform</span>
+              <span class="pipe__stat">7 hops, 2M+ records a day</span>
+            </figcaption>
+            <ol class="pipe__path" style="--n: 7">
+              <li class="pipe__node pipe__node--edge" style="--i: 0">
+                LoRaWAN
+              </li>
+              <li class="pipe__node" style="--i: 1">MQTT</li>
+              <li class="pipe__node" style="--i: 2">RabbitMQ</li>
+              <li class="pipe__node" style="--i: 3">Go</li>
+              <li class="pipe__node" style="--i: 4">TimescaleDB</li>
+              <li class="pipe__node" style="--i: 5">SSE</li>
+              <li class="pipe__node" style="--i: 6">Dashboard</li>
+            </ol>
+            <p class="pipe__foot">
+              Every hop on this strip is something I have run, broken, and kept
+              running.
+            </p>
+          </figure>
+        </section>
 
-  <main class="main" id="main">
+        <!-- About ------------------------------------------------------------- -->
+        <section class="band" id="about" aria-labelledby="about-title">
+          <div class="band__head">
+            <h2 class="band__title" id="about-title">About</h2>
+          </div>
+          <div class="band__body prose">
+            <p>
+              I have spent 13 years in IT. The first ten were at All In One in
+              Khartoum, in the hardware and support roles listed below:
+              component-level repair, network configuration, hardened system
+              imaging across multi-user environments, and ownership of backup
+              schedules and data recovery. I also ran a translation and
+              documentation desk there, producing certified English-Arabic
+              translations and bilingual documents with right-to-left layout. It
+              taught me how systems fail, and how to stay calm while they are
+              failing.
+            </p>
+            <p>
+              In 2023 I made a deliberate move into software engineering and
+              completed the ALX back-end programme. Since then my work has been
+              contract and volunteer engineering across four teams, and every
+              engagement has shipped to real users rather than stopping at a
+              demo. The pattern is consistent: I build the backend, I own the
+              delivery pipeline, and I leave the deployment documented and
+              observable.
+            </p>
+            <p>
+              What I think I am actually good at is the seam between writing
+              services and running them. I have written the Go service that
+              ingests over two million telemetry messages a day, and I have been
+              the person paged at 2am when it stopped. That is why my pipeline
+              work is opinionated, why I default to least privilege and to
+              signed artefacts, and why I write the runbook before I need it.
+            </p>
+          </div>
+        </section>
 
-    <!-- Hero -------------------------------------------------------------- -->
-    <section class="hero" id="top">
-      <p class="hero__eyebrow">Backend and Platform Engineer</p>
-      <h1 class="hero__title">
-        I build the services,<span>then I make sure they stay up.</span>
-      </h1>
-      <p class="hero__sub">
-        Go, Python and TypeScript on the backend. Docker, CI/CD, Kubernetes, Linux
-        and observability on the platform side. Shipped work in production for IoT
-        telemetry, AI document analysis and real-time search.
-      </p>
-      <p class="hero__actions">
-        <a class="btn" href="#work">See the work</a>
-        <a class="btn btn--ghost" href="#contact">Get in touch</a>
-      </p>
-
-      <figure class="pipe">
-        <figcaption class="pipe__cap">Data path, ITSQ production platform</figcaption>
-        <ol class="pipe__path">
-          <li class="pipe__node pipe__node--edge" style="--i:0">LoRaWAN</li>
-          <li class="pipe__node" style="--i:1">MQTT</li>
-          <li class="pipe__node" style="--i:2">RabbitMQ</li>
-          <li class="pipe__node" style="--i:3">Go</li>
-          <li class="pipe__node" style="--i:4">TimescaleDB</li>
-          <li class="pipe__node" style="--i:5">SSE</li>
-          <li class="pipe__node" style="--i:6">Dashboard</li>
-        </ol>
-        <p class="pipe__foot">
-          One request path, end to end: devices in, tenant-isolated time series
-          stored, live updates out. Every hop on this strip is something I have
-          run, broken, and kept running.
-        </p>
-      </figure>
-    </section>
-
-    <!-- About ------------------------------------------------------------- -->
-    <section class="band" id="about" aria-labelledby="about-title">
-      <div class="band__head">
-        <h2 class="band__title" id="about-title">About</h2>
-      </div>
-      <div class="band__body prose">
-        <p>
-          I have spent 13 years in IT. The first ten were spent at All In One in
-          Khartoum, where I repaired and supported hardware at the component level:
-          diagnosing faults down to internal circuitry, soldering, and replacing power
-          delivery modules and displays, plus firmware and BIOS work. I configured and
-          tested networks, deployed hardened system images across multi-user
-          environments, administered user and email accounts, and owned backup schedules
-          and data recovery. I also ran a translation and documentation desk there,
-          producing certified English-Arabic translations and bilingual documents with
-          right-to-left layout. It taught me how systems fail and how to stay calm while
-          they are failing.
-        </p>
-        <p>
-          In 2023 I made a deliberate move into software engineering and completed the
-          ALX back-end programme. Since then my work has been contract and volunteer
-          engineering across four teams, and every engagement has shipped to real users
-          rather than stopping at a demo. The pattern is consistent: I build the
-          backend, I own the delivery pipeline, and I leave the deployment documented
-          and observable.
-        </p>
-        <p>
-          What I think I am actually good at is the seam between writing services and
-          running them. I have written the Go service that ingests over two million
-          telemetry messages a day, and I have been the person paged at 2am when it
-          stopped. That is why my pipeline work is opinionated, why I default to least
-          privilege and to signed artefacts, and why I write the runbook before I need
-          it.
-        </p>
-      </div>
-    </section>
-
-    <!-- Selected work ----------------------------------------------------- -->
-    <section class="band" id="work" aria-labelledby="work-title">
-      <div class="band__head">
-        <h2 class="band__title" id="work-title">Selected work</h2>
-        <p class="band__note">
-          Four engagements, all shipped to real users. Client, contract and volunteer
-          work is labelled on every entry.
-        </p>
-      </div>
-
-      <div class="work">
-
-        <!-- ITSQ -->
-        <article class="entry">
-          <div class="entry__meta">
-            <h3 class="entry__client">
-              <a href="https://app.iot-shabaka.com" rel="noopener">ITSQ</a>
-            </h3>
-            <p class="entry__product">Enterprise IoT Monitoring Platform</p>
-            <p class="entry__type">Client contract</p>
-            <dl class="entry__meta-list">
-              <div>
-                <dt>Dates</dt>
-                <dd>May 2025 - May 2026</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>Qatar, remote contract</dd>
-              </div>
-            </dl>
-            <p class="entry__engagement">
-              Co-developed. Owned the infrastructure and the delivery pipeline.
+        <!-- Selected work ----------------------------------------------------- -->
+        <section class="band" id="work" aria-labelledby="work-title">
+          <div class="band__head">
+            <h2 class="band__title" id="work-title">Selected work</h2>
+            <p class="band__note">
+              Four engagements, all shipped to real users. Client, contract and
+              volunteer work is labelled on every entry.
             </p>
           </div>
 
-          <div class="entry__body">
-            <p class="metric">2M+ telemetry records processed daily</p>
-            <p class="entry__what">
-              A multi-tenant platform ingesting and visualising real-time LoRaWAN
-              telemetry from physical devices, processing over 2 million records daily.
+          <div class="work">
+            <!-- ITSQ -->
+            <article class="entry">
+              <div class="entry__meta">
+                <h3 class="entry__client">
+                  <a href="https://app.iot-shabaka.com" rel="noopener">ITSQ</a>
+                </h3>
+                <p class="entry__product">Enterprise IoT Monitoring Platform</p>
+                <p class="entry__type">Client contract</p>
+                <dl class="entry__meta-list">
+                  <div>
+                    <dt>Dates</dt>
+                    <dd>May 2025 - May 2026</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Qatar, remote contract</dd>
+                  </div>
+                </dl>
+                <p class="entry__engagement">
+                  Co-developed. Owned the infrastructure and the delivery
+                  pipeline.
+                </p>
+              </div>
+
+              <div class="entry__body">
+                <p class="metric">2M+ telemetry records processed daily</p>
+                <p class="entry__what">
+                  A multi-tenant platform ingesting and visualising real-time
+                  LoRaWAN telemetry from physical devices, processing over 2
+                  million records daily.
+                </p>
+                <ul class="points">
+                  <li class="point--feature">
+                    <strong
+                      >Tenant isolation with PostgreSQL Row-Level
+                      Security</strong
+                    >
+                    across more than 30 tables, combined with role-based access
+                    control. The isolation is enforced in the database rather
+                    than filtered in the application, so a query written in the
+                    wrong place cannot leak another tenant's data.
+                  </li>
+                  <li>
+                    A sandboxed JavaScript decoder engine that runs untrusted
+                    device payloads inside V8 sandboxes, with multi-layer
+                    security analysis. Security as a design decision, not a
+                    bolt-on.
+                  </li>
+                  <li>
+                    Go microservices for MQTT ingestion, payload decoding and
+                    time-series persistence, wired together with RabbitMQ and
+                    gRPC.
+                  </li>
+                  <li>
+                    A FastAPI backend streaming live updates to the dashboard
+                    over Server-Sent Events, with Redis caching.
+                  </li>
+                  <li>
+                    A React single-page application built from scratch: 100+
+                    components, TypeScript in strict mode, RTK Query, real-time
+                    SSE dashboards, tested with React Testing Library and MSW.
+                  </li>
+                  <li>
+                    Delivery on Docker Compose across a VPS, with 14 GitHub
+                    Actions workflows covering change detection, build, test,
+                    Trivy scanning, cosign image signing and automated
+                    production deploys.
+                  </li>
+                  <li>
+                    Zero-downtime deploys: signed-image verification,
+                    dependency-ordered rolling updates, health checks and
+                    automated database migrations.
+                  </li>
+                  <li>
+                    Prometheus, Grafana and Loki with custom dashboards,
+                    alerting and automated config sync. Incidents triaged from
+                    alert to root cause.
+                  </li>
+                  <li>
+                    The edge and the data path hardened: Nginx with TLS,
+                    security headers and rate limiting; MQTT broker with TLS and
+                    ACLs; scheduled pgbackrest backups and automated SSL
+                    renewal.
+                  </li>
+                </ul>
+
+                <details class="arch">
+                  <summary>Architecture</summary>
+                  <div class="arch__body">
+                    <div
+                      class="arch__scroll"
+                      tabindex="0"
+                      role="group"
+                      aria-label="Architecture diagram, scrollable"
+                    >
+                      <svg
+                        viewBox="0 0 900 400"
+                        role="img"
+                        aria-labelledby="arch-t arch-d"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title id="arch-t">
+                          ITSQ ingestion and delivery path
+                        </title>
+                        <desc id="arch-d">
+                          LoRaWAN devices publish over MQTT with TLS into a
+                          broker restricted by access control lists. The broker
+                          feeds RabbitMQ, which fans out to the Go ingest
+                          service and to the Go persistence service. Between
+                          them sits a V8 decoder sandbox that executes untrusted
+                          device payloads. The persistence service writes
+                          time-series data to TimescaleDB, where PostgreSQL
+                          row-level security across more than 30 tables isolates
+                          tenants. A FastAPI backend with Redis caching reads
+                          from the database and streams server-sent events to a
+                          React dashboard. The runtime was Docker Compose on a
+                          VPS.
+                        </desc>
+
+                        <!-- flow -->
+                        <path
+                          class="dia-link dia-link--edge"
+                          d="M118 56 H168"
+                        />
+                        <path class="dia-link" d="M318 56 H368" />
+                        <path class="dia-link" d="M443 82 V112 H114 V150" />
+                        <path class="dia-link" d="M443 112 H628 V150" />
+                        <path
+                          class="dia-link dia-link--accent"
+                          d="M214 180 H264"
+                        />
+                        <path
+                          class="dia-link dia-link--accent"
+                          d="M478 180 H528"
+                        />
+                        <path class="dia-link" d="M628 210 V256 H181 V300" />
+                        <path class="dia-link" d="M348 330 H428" />
+                        <path
+                          class="dia-link dia-link--accent"
+                          d="M600 330 H650"
+                        />
+
+                        <text class="dia-sub" x="604" y="292">SSE</text>
+
+                        <!-- edge and ingress -->
+                        <rect
+                          class="dia-box dia-box--edge"
+                          x="14"
+                          y="30"
+                          width="104"
+                          height="52"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="30" y="52">LoRaWAN</text>
+                        <text class="dia-sub" x="30" y="70">field devices</text>
+
+                        <rect
+                          class="dia-box"
+                          x="168"
+                          y="30"
+                          width="150"
+                          height="52"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="184" y="52">
+                          MQTT broker
+                        </text>
+                        <text class="dia-sub" x="184" y="70">TLS, ACLs</text>
+
+                        <rect
+                          class="dia-box"
+                          x="368"
+                          y="30"
+                          width="150"
+                          height="52"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="384" y="52">RabbitMQ</text>
+                        <text class="dia-sub" x="384" y="70">
+                          durable queues
+                        </text>
+
+                        <!-- Go services -->
+                        <rect
+                          class="dia-box"
+                          x="14"
+                          y="150"
+                          width="200"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="32" y="174">Go ingest</text>
+                        <text class="dia-sub" x="32" y="193">
+                          payload decode, gRPC
+                        </text>
+
+                        <rect
+                          class="dia-box dia-box--accent"
+                          x="264"
+                          y="150"
+                          width="214"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="282" y="174">
+                          V8 decoder sandbox
+                        </text>
+                        <text class="dia-sub" x="282" y="193">
+                          untrusted payloads, sandboxed
+                        </text>
+
+                        <rect
+                          class="dia-box"
+                          x="528"
+                          y="150"
+                          width="200"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="546" y="174">
+                          Go persistence
+                        </text>
+                        <text class="dia-sub" x="546" y="193">
+                          time-series write path
+                        </text>
+
+                        <!-- store, api, client -->
+                        <rect
+                          class="dia-box"
+                          x="14"
+                          y="300"
+                          width="334"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="32" y="322">
+                          TimescaleDB / PostgreSQL
+                        </text>
+                        <text class="dia-sub" x="32" y="341">
+                          row-level security, 30+ tables
+                        </text>
+                        <text class="dia-sub" x="32" y="354">
+                          tenant isolation, RBAC
+                        </text>
+
+                        <rect
+                          class="dia-box"
+                          x="428"
+                          y="300"
+                          width="172"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="446" y="322">FastAPI</text>
+                        <text class="dia-sub" x="446" y="341">Redis cache</text>
+                        <text class="dia-sub" x="446" y="354">
+                          migrations, health checks
+                        </text>
+
+                        <rect
+                          class="dia-box dia-box--accent"
+                          x="650"
+                          y="300"
+                          width="236"
+                          height="60"
+                          rx="4"
+                        />
+                        <text class="dia-label" x="668" y="322">
+                          React dashboard
+                        </text>
+                        <text class="dia-sub" x="668" y="341">
+                          100+ components, RTK Query
+                        </text>
+                        <text class="dia-sub" x="668" y="354">
+                          TypeScript strict mode
+                        </text>
+                      </svg>
+                    </div>
+                    <p class="arch__alt">
+                      <strong>Read as:</strong> devices publish over MQTT with
+                      TLS into a broker restricted by ACLs. RabbitMQ fans out to
+                      Go services for ingestion, payload decoding and
+                      time-series writes. Untrusted device payloads are executed
+                      inside a V8 sandbox rather than trusted. TimescaleDB
+                      enforces tenant isolation in the database with row-level
+                      security across more than 30 tables. A FastAPI backend
+                      with Redis caching streams server-sent events to a React
+                      dashboard, while Prometheus, Grafana and Loki observe the
+                      whole path. The runtime was Docker Compose on a VPS; a
+                      Kubernetes deployment with kustomize, HPA, NetworkPolicies
+                      and RBAC was architected and configured alongside it, but
+                      it was not the system serving production traffic.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </article>
+
+            <!-- DIAMINATE -->
+            <article class="entry">
+              <div class="entry__meta">
+                <h3 class="entry__client">
+                  <a href="https://iq.diaminate.com" rel="noopener"
+                    >DIAMINATE</a
+                  >
+                </h3>
+                <p class="entry__product">EventIQ Lead Intelligence Platform</p>
+                <p class="entry__type entry__type--plain">
+                  Volunteer role, remote startup team
+                </p>
+                <dl class="entry__meta-list">
+                  <div>
+                    <dt>Dates</dt>
+                    <dd>March 2026 - June 2026</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Remote (Canada), volunteer</dd>
+                  </div>
+                </dl>
+                <p class="entry__engagement">
+                  Co-developed. Owned the container build system, CI/CD, and the
+                  migration toolchain.
+                </p>
+              </div>
+
+              <div class="entry__body">
+                <p class="metric">7 services, 3 environments, one pipeline</p>
+                <p class="entry__what">
+                  An AI-powered B2B lead intelligence platform: seven Python
+                  services and a React frontend, taken from scaffold to
+                  production. Unpaid volunteer engineering on a remote startup
+                  team.
+                </p>
+                <ul class="points">
+                  <li>
+                    An AI document analysis pipeline ingesting PDFs, slides and
+                    spreadsheets, with LLM extraction, retries and model
+                    fallback for flaky responses.
+                  </li>
+                  <li>
+                    A lead ranking engine using profile-adaptive weighted
+                    scoring, feedback-driven retraining with learned weights,
+                    and evidence-backed confidence.
+                  </li>
+                  <li>
+                    An agent orchestration service with an MCP client, plus an
+                    async enrichment worker with job tracking, retry and
+                    structured output.
+                  </li>
+                  <li>
+                    Authentication, role-based access control and API proxying
+                    into third-party data sources, built from scratch, with HMAC
+                    request signing and request-ID middleware.
+                  </li>
+                  <li>
+                    Container build system: multi-stage Dockerfiles and a Docker
+                    Buildx Bake matrix across all services, published to GHCR.
+                  </li>
+                  <li>
+                    CI/CD on GitHub Actions with per-service change detection,
+                    cached builds and Trivy scanning, deploying automatically
+                    across three environments. Dependabot across five
+                    ecosystems, action pinning, least-privilege tokens and
+                    cosign signing.
+                  </li>
+                  <li>
+                    Database change management: schema-aware Alembic with
+                    PgBouncer, eight migrations, and CI drift detection to
+                    prevent schema divergence between environments.
+                  </li>
+                  <li>
+                    An isolated Docker Compose end-to-end environment with a
+                    Makefile-driven workflow for reproducible local and CI
+                    testing.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- SWEA -->
+            <article class="entry">
+              <div class="entry__meta">
+                <h3 class="entry__client">SWEA</h3>
+                <p class="entry__product">
+                  Sudanese Women Economists Association Website and CMS
+                </p>
+                <p class="entry__type">Team project, contract</p>
+                <dl class="entry__meta-list">
+                  <div>
+                    <dt>Dates</dt>
+                    <dd>February 2025 - May 2025</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Remote, team project</dd>
+                  </div>
+                </dl>
+                <p class="entry__engagement">Co-developed as a team project.</p>
+              </div>
+
+              <div class="entry__body">
+                <p class="metric metric--plain">
+                  Custom CMS and public website
+                </p>
+                <p class="entry__what">
+                  A custom content management system and public website, built
+                  so the organisation would own its site end to end instead of
+                  depending on a hosted page builder. No public site is
+                  available to link.
+                </p>
+                <ul class="points">
+                  <li>
+                    Data model, admin area and public pages designed from
+                    scratch, with publishing workflows and role-based
+                    permissions for editors.
+                  </li>
+                  <li>
+                    Full internationalisation, including a complete
+                    right-to-left interface and the platform documentation
+                    translated so non-English users could operate it end to end.
+                  </li>
+                  <li>
+                    A modular storage abstraction using a strategy pattern, so
+                    files live on local disk or in AWS S3 without code changes.
+                  </li>
+                  <li>Migrated the datastore from MongoDB to PostgreSQL.</li>
+                  <li>
+                    An asynchronous Redis email queue, server-side sessions,
+                    rate limiting on public forms, and a pluggable media
+                    management layer.
+                  </li>
+                  <li>
+                    Frontend: HTMX 2.0 with Tailwind CSS for partial page
+                    updates, Quill rich-text editing, Flatpickr date pickers.
+                  </li>
+                  <li>
+                    A pre-commit quality and security gate using gitleaks and
+                    bandit, plus PyInstaller release tooling, and a Docker
+                    Compose development stack.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- TruthTotal -->
+            <article class="entry">
+              <div class="entry__meta">
+                <h3 class="entry__client">
+                  <a href="https://truthtotal.com/" rel="noopener"
+                    >TruthTotal</a
+                  >
+                </h3>
+                <p class="entry__product">Community Notes Analysis Platform</p>
+                <p class="entry__type entry__type--plain">Personal project</p>
+                <dl class="entry__meta-list">
+                  <div>
+                    <dt>Dates</dt>
+                    <dd>October 2024 - January 2025</dd>
+                  </div>
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Personal</dd>
+                  </div>
+                </dl>
+                <p class="entry__engagement">
+                  Built with one other engineer. Led the backend, data
+                  processing, API design and search infrastructure.
+                </p>
+              </div>
+
+              <div class="entry__body">
+                <p class="metric">991 misleading posts identified, 101 users</p>
+                <p class="entry__what">
+                  A platform that analyses X (Twitter) Community Notes datasets
+                  and surfaces misleading posts, with a public leaderboard,
+                  full-text search and AI-assisted topic grouping. Shipped from
+                  concept to production by a two-person team.
+                </p>
+                <ul class="points">
+                  <li>
+                    An automated daily pipeline: downloads the TSV and zip
+                    Community Notes datasets, cross-references note status,
+                    scrapes posts with Playwright across multiple processes, and
+                    stores the results in MongoDB.
+                  </li>
+                  <li>
+                    Go shared libraries compiled to <code>.so</code> via cgo and
+                    loaded from Python, used to normalise API responses and
+                    cross-reference large TSV datasets.
+                  </li>
+                  <li>
+                    Elasticsearch with Docker, TLS and multilingual analyzers,
+                    with relevance and ranking tuned for the leaderboard.
+                  </li>
+                  <li>
+                    A Flask web application with Jinja2, Tailwind and HTMX: a
+                    ranked leaderboard, search, and AI-powered topic grouping.
+                  </li>
+                  <li>
+                    Operations, which are the honest proof of production
+                    experience: a Linux VPS, Docker, TLS, systemd units for the
+                    app and the queue worker, cron-scheduled pipelines, and
+                    git-hook deploys that sync dependencies, build static assets
+                    and restart services.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Stack ------------------------------------------------------------- -->
+        <section class="band" id="stack" aria-labelledby="stack-title">
+          <div class="band__head">
+            <h2 class="band__title" id="stack-title">Stack</h2>
+            <p class="band__note">
+              Every term below is used in one of the four projects above. If it
+              is not in the evidence, it is not here.
             </p>
-            <ul class="points">
-              <li class="point--feature">
-                <strong>Tenant isolation with PostgreSQL Row-Level Security</strong>
-                across more than 30 tables, combined with role-based access control.
-                The isolation is enforced in the database rather than filtered in the
-                application, so a query written in the wrong place cannot leak another
-                tenant's data.
-              </li>
-              <li>
-                A sandboxed JavaScript decoder engine that runs untrusted device
-                payloads inside V8 sandboxes, with multi-layer security analysis.
-                Security as a design decision, not a bolt-on.
-              </li>
-              <li>
-                Go microservices for MQTT ingestion, payload decoding and time-series
-                persistence, wired together with RabbitMQ and gRPC.
-              </li>
-              <li>
-                A FastAPI backend streaming live updates to the dashboard over
-                Server-Sent Events, with Redis caching.
-              </li>
-              <li>
-                A React single-page application built from scratch: 100+ components,
-                TypeScript in strict mode, RTK Query, real-time SSE dashboards, tested
-                with React Testing Library and MSW.
-              </li>
-              <li>
-                Delivery on Docker Compose across a VPS, with 14 GitHub Actions
-                workflows covering change detection, build, test, Trivy scanning,
-                cosign image signing and automated production deploys.
-              </li>
-              <li>
-                Zero-downtime deploys: signed-image verification, dependency-ordered
-                rolling updates, health checks and automated database migrations.
-              </li>
-              <li>
-                Prometheus, Grafana and Loki with custom dashboards, alerting and
-                automated config sync. Incidents triaged from alert to root cause.
-              </li>
-              <li>
-                The edge and the data path hardened: Nginx with TLS, security headers
-                and rate limiting; MQTT broker with TLS and ACLs; scheduled pgbackrest
-                backups and automated SSL renewal.
-              </li>
-            </ul>
+          </div>
 
-            <details class="arch">
-              <summary>Architecture</summary>
-              <div class="arch__body">
-                <div class="arch__scroll" tabindex="0" role="group" aria-label="Architecture diagram, scrollable">
-                  <svg viewBox="0 0 900 400" role="img" aria-labelledby="arch-t arch-d" xmlns="http://www.w3.org/2000/svg">
-                    <title id="arch-t">ITSQ ingestion and delivery path</title>
-                    <desc id="arch-d">LoRaWAN devices publish over MQTT with TLS into a broker restricted by access control lists. The broker feeds RabbitMQ, which fans out to the Go ingest service and to the Go persistence service. Between them sits a V8 decoder sandbox that executes untrusted device payloads. The persistence service writes time-series data to TimescaleDB, where PostgreSQL row-level security across more than 30 tables isolates tenants. A FastAPI backend with Redis caching reads from the database and streams server-sent events to a React dashboard. The runtime was Docker Compose on a VPS.</desc>
+          <div class="groups">
+            <div class="group">
+              <h3 class="group__name">Services</h3>
+              <ul class="terms">
+                <li>Go</li>
+                <li>Python</li>
+                <li>TypeScript</li>
+                <li>REST</li>
+                <li>gRPC</li>
+                <li>Server-Sent Events</li>
+                <li>FastAPI</li>
+                <li>Flask</li>
+                <li>Playwright</li>
+              </ul>
+            </div>
 
-                    <!-- flow -->
-                    <path class="dia-link dia-link--edge" d="M118 56 H168" />
-                    <path class="dia-link" d="M318 56 H368" />
-                    <path class="dia-link" d="M443 82 V112 H114 V150" />
-                    <path class="dia-link" d="M443 112 H628 V150" />
-                    <path class="dia-link dia-link--accent" d="M214 180 H264" />
-                    <path class="dia-link dia-link--accent" d="M478 180 H528" />
-                    <path class="dia-link" d="M628 210 V256 H181 V300" />
-                    <path class="dia-link" d="M348 330 H428" />
-                    <path class="dia-link dia-link--accent" d="M600 330 H650" />
+            <div class="group">
+              <h3 class="group__name">Data</h3>
+              <ul class="terms">
+                <li>PostgreSQL with Row-Level Security</li>
+                <li>TimescaleDB</li>
+                <li>MongoDB</li>
+                <li>Redis</li>
+                <li>Elasticsearch</li>
+                <li>AWS S3</li>
+                <li>SQL schema design and tuning</li>
+              </ul>
+            </div>
 
-                    <text class="dia-sub" x="604" y="292">SSE</text>
+            <div class="group">
+              <h3 class="group__name">Platform and delivery</h3>
+              <ul class="terms">
+                <li>Docker</li>
+                <li>Docker Compose</li>
+                <li>Docker Buildx Bake</li>
+                <li>Kubernetes, architected with kustomize</li>
+                <li>Linux server administration</li>
+                <li>Nginx</li>
+                <li>systemd</li>
+                <li>GitHub Actions</li>
+                <li>Trivy and cosign</li>
+              </ul>
+            </div>
 
-                    <!-- edge and ingress -->
-                    <rect class="dia-box dia-box--edge" x="14" y="30" width="104" height="52" rx="4" />
-                    <text class="dia-label" x="30" y="52">LoRaWAN</text>
-                    <text class="dia-sub" x="30" y="70">field devices</text>
+            <div class="group">
+              <h3 class="group__name">Observability and messaging</h3>
+              <ul class="terms">
+                <li>Prometheus</li>
+                <li>Grafana</li>
+                <li>Loki</li>
+                <li>RabbitMQ</li>
+                <li>MQTT</li>
+                <li>Alerting</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-                    <rect class="dia-box" x="168" y="30" width="150" height="52" rx="4" />
-                    <text class="dia-label" x="184" y="52">MQTT broker</text>
-                    <text class="dia-sub" x="184" y="70">TLS, ACLs</text>
+        <!-- Operations -------------------------------------------------------- -->
+        <section
+          class="band"
+          id="operations"
+          aria-labelledby="operations-title"
+        >
+          <div class="band__head">
+            <h2 class="band__title" id="operations-title">
+              Operations and reliability
+            </h2>
+            <p class="band__note">
+              Judgement, not a checklist. The production evidence for all of it
+              is in the projects above, and the hardware decade below is where
+              the instinct came from.
+            </p>
+          </div>
 
-                    <rect class="dia-box" x="368" y="30" width="150" height="52" rx="4" />
-                    <text class="dia-label" x="384" y="52">RabbitMQ</text>
-                    <text class="dia-sub" x="384" y="70">durable queues</text>
+          <dl class="creed">
+            <div>
+              <dt>Ownership ends at the last log line</dt>
+              <dd>
+                A service is not finished when it merges. It is finished when
+                someone else can run it at 2am without me, and when whatever
+                broke it last time cannot break it again.
+              </dd>
+            </div>
+            <div>
+              <dt>Fail closed, on purpose</dt>
+              <dd>
+                Deny by default. Migrations reversible. Deploys additive. Pick
+                the failure mode that is safe rather than the one that is
+                convenient.
+              </dd>
+            </div>
+            <div>
+              <dt>Automate whatever paged me twice</dt>
+              <dd>
+                A recurring fault becomes a check in the pipeline. If it can be
+                detected, it should fail the build rather than the on-call.
+              </dd>
+            </div>
+            <div>
+              <dt>The runbook is part of the change</dt>
+              <dd>
+                Written before the deploy, not after the incident. Ten years of
+                hardware triage is where that habit comes from.
+              </dd>
+            </div>
+          </dl>
+        </section>
 
-                    <!-- Go services -->
-                    <rect class="dia-box" x="14" y="150" width="200" height="60" rx="4" />
-                    <text class="dia-label" x="32" y="174">Go ingest</text>
-                    <text class="dia-sub" x="32" y="193">payload decode, gRPC</text>
+        <!-- Earlier experience ------------------------------------------------ -->
+        <section class="band" id="earlier" aria-labelledby="earlier-title">
+          <div class="band__head">
+            <h2 class="band__title" id="earlier-title">Earlier experience</h2>
+            <p class="band__note">
+              Ten of thirteen years, before the pivot. Included because it is
+              where the operational judgement comes from.
+            </p>
+          </div>
 
-                    <rect class="dia-box dia-box--accent" x="264" y="150" width="214" height="60" rx="4" />
-                    <text class="dia-label" x="282" y="174">V8 decoder sandbox</text>
-                    <text class="dia-sub" x="282" y="193">untrusted payloads, sandboxed</text>
+          <div class="tenure">
+            <div class="tenure__meta">
+              <p class="tenure__org">All In One</p>
+              <span class="tenure__span">Khartoum, Sudan</span>
+              <span class="tenure__span">2012 - 2023</span>
+            </div>
 
-                    <rect class="dia-box" x="528" y="150" width="200" height="60" rx="4" />
-                    <text class="dia-label" x="546" y="174">Go persistence</text>
-                    <text class="dia-sub" x="546" y="193">time-series write path</text>
+            <div class="tenure__body">
+              <div class="role">
+                <h3 class="role__title">
+                  Computer and Network Hardware Specialist
+                  <span class="role__dates">November 2012 - December 2017</span>
+                </h3>
 
-                    <!-- store, api, client -->
-                    <rect class="dia-box" x="14" y="300" width="334" height="60" rx="4" />
-                    <text class="dia-label" x="32" y="322">TimescaleDB / PostgreSQL</text>
-                    <text class="dia-sub" x="32" y="341">row-level security, 30+ tables</text>
-                    <text class="dia-sub" x="32" y="354">tenant isolation, RBAC</text>
-
-                    <rect class="dia-box" x="428" y="300" width="172" height="60" rx="4" />
-                    <text class="dia-label" x="446" y="322">FastAPI</text>
-                    <text class="dia-sub" x="446" y="341">Redis cache</text>
-                    <text class="dia-sub" x="446" y="354">migrations, health checks</text>
-
-                    <rect class="dia-box dia-box--accent" x="650" y="300" width="236" height="60" rx="4" />
-                    <text class="dia-label" x="668" y="322">React dashboard</text>
-                    <text class="dia-sub" x="668" y="341">100+ components, RTK Query</text>
-                    <text class="dia-sub" x="668" y="354">TypeScript strict mode</text>
-                  </svg>
+                <div class="role__group">
+                  <h4 class="role__group-name">Hardware and systems work</h4>
+                  <ul class="ticks">
+                    <li>
+                      Component-level diagnostics and repair down to internal
+                      circuitry, soldering, power delivery modules and displays.
+                      Repairing extended the service life of business equipment
+                      rather than replacing it.
+                    </li>
+                    <li>
+                      Hardened system imaging with anti-malware pre-installed,
+                      firmware and BIOS configuration, and the full device
+                      lifecycle across Windows, Linux and macOS in multi-user
+                      environments.
+                    </li>
+                  </ul>
                 </div>
-                <p class="arch__alt">
-                  <strong>Read as:</strong> devices publish over MQTT with TLS into a
-                  broker restricted by ACLs. RabbitMQ fans out to Go services for
-                  ingestion, payload decoding and time-series writes. Untrusted device
-                  payloads are executed inside a V8 sandbox rather than trusted.
-                  TimescaleDB enforces tenant isolation in the database with
-                  row-level security across more than 30 tables. A FastAPI backend with
-                  Redis caching streams server-sent events to a React dashboard, while
-                  Prometheus, Grafana and Loki observe the whole path. The runtime was
-                  Docker Compose on a VPS; a Kubernetes deployment with kustomize, HPA,
-                  NetworkPolicies and RBAC was architected and configured alongside it,
-                  but it was not the system serving production traffic.
-                </p>              </div>
-            </details>
-          </div>
-        </article>
-
-        <!-- DIAMINATE -->
-        <article class="entry">
-          <div class="entry__meta">
-            <h3 class="entry__client">
-              <a href="https://iq.diaminate.com" rel="noopener">DIAMINATE</a>
-            </h3>
-            <p class="entry__product">EventIQ Lead Intelligence Platform</p>
-            <p class="entry__type entry__type--plain">Volunteer role, remote startup team</p>
-            <dl class="entry__meta-list">
-              <div>
-                <dt>Dates</dt>
-                <dd>March 2026 - June 2026</dd>
               </div>
-              <div>
-                <dt>Location</dt>
-                <dd>Remote (Canada), volunteer</dd>
+
+              <div class="role">
+                <h3 class="role__title">
+                  Senior IT Support and Laptop Technician
+                  <span class="role__dates">January 2018 - April 2023</span>
+                </h3>
+
+                <p class="metric metric--plain">30% fewer on-site dispatches</p>
+
+                <div class="role__group">
+                  <h4 class="role__group-name">IT operations work</h4>
+                  <ul class="ticks">
+                    <li>
+                      Secure remote-access pipelines for off-site
+                      troubleshooting, which cut on-site dispatches by 30
+                      percent.
+                    </li>
+                    <li>
+                      Account and access administration, scheduled backup
+                      routines and data recovery, and asset inventory across
+                      Microsoft 365, Google Workspace and Active Directory,
+                      under an issue-resolution SLA.
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </dl>
-            <p class="entry__engagement">
-              Co-developed. Owned the container build system, CI/CD, and the migration
-              toolchain.
-            </p>
-          </div>
-
-          <div class="entry__body">
-            <p class="metric">7 services, 3 environments, one pipeline</p>
-            <p class="entry__what">
-              An AI-powered B2B lead intelligence platform: seven Python services and
-              a React frontend, taken from scaffold to production. Unpaid volunteer
-              engineering on a remote startup team.
-            </p>
-            <ul class="points">
-              <li>
-                An AI document analysis pipeline ingesting PDFs, slides and
-                spreadsheets, with LLM extraction, retries and model fallback for
-                flaky responses.
-              </li>
-              <li>
-                A lead ranking engine using profile-adaptive weighted scoring,
-                feedback-driven retraining with learned weights, and evidence-backed
-                confidence.
-              </li>
-              <li>
-                An agent orchestration service with an MCP client, plus an async
-                enrichment worker with job tracking, retry and structured output.
-              </li>
-              <li>
-                Authentication, role-based access control and API proxying into
-                third-party data sources, built from scratch, with HMAC request signing
-                and request-ID middleware.
-              </li>
-              <li>
-                Container build system: multi-stage Dockerfiles and a Docker Buildx Bake
-                matrix across all services, published to GHCR.
-              </li>
-              <li>
-                CI/CD on GitHub Actions with per-service change detection, cached
-                builds and Trivy scanning, deploying automatically across three
-                environments. Dependabot across five ecosystems, action pinning,
-                least-privilege tokens and cosign signing.
-              </li>
-              <li>
-                Database change management: schema-aware Alembic with PgBouncer, eight
-                migrations, and CI drift detection to prevent schema divergence
-                between environments.
-              </li>
-              <li>
-                An isolated Docker Compose end-to-end environment with a
-                Makefile-driven workflow for reproducible local and CI testing.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- SWEA -->
-        <article class="entry">
-          <div class="entry__meta">
-            <h3 class="entry__client">SWEA</h3>
-            <p class="entry__product">Sudanese Women Economists Association Website and CMS</p>
-            <p class="entry__type">Team project, contract</p>            <dl class="entry__meta-list">
-              <div>
-                <dt>Dates</dt>
-                <dd>February 2025 - May 2025</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>Remote, team project</dd>
-              </div>
-            </dl>
-            <p class="entry__engagement">
-              Co-developed as a team project.
-            </p>
-          </div>
-
-          <div class="entry__body">
-            <p class="metric metric--plain">Custom CMS and public website</p>
-            <p class="entry__what">
-              A custom content management system and public website, built so the
-              organisation would own its site end to end instead of depending on a
-              hosted page builder. No public site is available to link.
-            </p>
-            <ul class="points">
-              <li>
-                Data model, admin area and public pages designed from scratch, with
-                publishing workflows and role-based permissions for editors.
-              </li>
-              <li>
-                Full internationalisation, including a complete right-to-left interface
-                and the platform documentation translated so non-English users could
-                operate it end to end.
-              </li>
-              <li>
-                A modular storage abstraction using a strategy pattern, so files live
-                on local disk or in AWS S3 without code changes.
-              </li>
-              <li>
-                Migrated the datastore from MongoDB to PostgreSQL.
-              </li>
-              <li>
-                An asynchronous Redis email queue, server-side sessions, rate limiting
-                on public forms, and a pluggable media management layer.
-              </li>
-              <li>
-                Frontend: HTMX 2.0 with Tailwind CSS for partial page updates, Quill
-                rich-text editing, Flatpickr date pickers.
-              </li>
-              <li>
-                A pre-commit quality and security gate using gitleaks and bandit, plus
-                PyInstaller release tooling, and a Docker Compose development stack.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- TruthTotal -->
-        <article class="entry">
-          <div class="entry__meta">
-            <h3 class="entry__client">
-              <a href="https://truthtotal.com" rel="noopener">TruthTotal</a>
-            </h3>
-            <p class="entry__product">Community Notes Analysis Platform</p>
-            <p class="entry__type entry__type--plain">Personal project</p>
-            <dl class="entry__meta-list">
-              <div>
-                <dt>Dates</dt>
-                <dd>October 2024 - January 2025</dd>
-              </div>
-              <div>
-                <dt>Location</dt>
-                <dd>Personal</dd>
-              </div>
-            </dl>
-            <p class="entry__engagement">
-              Built with one other engineer. Led the backend, data processing, API
-              design and search infrastructure.
-            </p>
-          </div>
-
-          <div class="entry__body">
-            <p class="metric">991 misleading posts identified, 101 users</p>
-            <p class="entry__what">
-              A platform that analyses X (Twitter) Community Notes datasets and surfaces
-              misleading posts, with a public leaderboard, full-text search and
-              AI-assisted topic grouping. Shipped from concept to production by a
-              two-person team.
-            </p>
-            <ul class="points">
-              <li>
-                An automated daily pipeline: downloads the TSV and zip Community Notes
-                datasets, cross-references note status, scrapes posts with Playwright
-                across multiple processes, and stores the results in MongoDB.
-              </li>
-              <li>
-                Go shared libraries compiled to <code>.so</code> via cgo and loaded from
-                Python, used to normalise API responses and cross-reference large TSV
-                datasets.
-              </li>
-              <li>
-                Elasticsearch with Docker, TLS and multilingual analyzers, with
-                relevance and ranking tuned for the leaderboard.
-              </li>
-              <li>
-                A Flask web application with Jinja2, Tailwind and HTMX: a ranked
-                leaderboard, search, and AI-powered topic grouping.
-              </li>
-              <li>
-                Operations, which are the honest proof of production experience: a Linux
-                VPS, Docker, TLS, systemd units for the app and the queue worker,
-                cron-scheduled pipelines, and git-hook deploys that sync dependencies,
-                build static assets and restart services.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Stack ------------------------------------------------------------- -->
-    <section class="band" id="stack" aria-labelledby="stack-title">
-      <div class="band__head">
-        <h2 class="band__title" id="stack-title">Stack</h2>
-        <p class="band__note">
-          Grouped by capability. No proficiency bars, because the project evidence
-          above is the claim.
-        </p>
-      </div>
-
-      <div class="groups">
-        <div class="group">
-          <h3 class="group__name">Languages</h3>
-          <ul class="terms">
-            <li>Go</li><li>Python</li><li>TypeScript</li><li>SQL</li><li>Bash</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Backend and APIs</h3>
-          <ul class="terms">
-            <li>REST</li><li>gRPC</li><li>WebSocket</li><li>Server-Sent Events</li>
-            <li>FastAPI</li><li>Flask</li><li>Node.js with Express</li>
-            <li>Swagger and OpenAPI</li><li>JWT authentication</li>
-            <li>Role-based access control</li><li>Rate limiting</li>
-            <li>HMAC request signing</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Data</h3>
-          <ul class="terms">
-            <li>PostgreSQL with Row-Level Security</li><li>TimescaleDB</li>
-            <li>MySQL</li><li>MongoDB</li><li>Redis</li><li>Elasticsearch</li>
-            <li>MinIO</li><li>SQL query design and tuning</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Platform and delivery</h3>
-          <ul class="terms">
-            <li>Docker</li><li>Docker Compose</li><li>Docker Buildx Bake</li>
-            <li>Kubernetes with kustomize and HPA</li><li>Podman</li>
-            <li>Linux server administration</li><li>Nginx</li><li>systemd</li>
-            <li>GitHub Actions</li><li>CI/CD</li><li>Terraform</li><li>Ansible</li>
-            <li>cloud-init</li><li>Makefile</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Cloud</h3>
-          <ul class="terms">
-            <li>AWS EC2</li><li>AWS S3</li><li>Azure VM</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Networking and infrastructure</h3>
-          <ul class="terms">
-            <li>TCP/IP</li><li>LAN and Wi-Fi</li><li>DHCP</li><li>DNS</li>
-            <li>Routers and switches</li><li>Firewalls</li><li>VPN</li>
-            <li>Access points</li><li>Bandwidth and topology troubleshooting</li>
-            <li>Hardware upgrades</li><li>Firmware and BIOS configuration</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Operating systems and endpoints</h3>
-          <ul class="terms">
-            <li>Windows</li><li>Linux</li><li>macOS</li><li>OS deployment and migration</li>
-            <li>Hardened system imaging</li><li>Workstation and server fleet management</li>
-            <li>Microsoft 365</li><li>Google Workspace</li><li>Active Directory</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Observability and messaging</h3>
-          <ul class="terms">
-            <li>Prometheus</li><li>Grafana</li><li>Loki</li><li>Fluent Bit</li>
-            <li>node-exporter</li><li>Alerting</li><li>RabbitMQ</li><li>MQTT</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">AI and LLMs</h3>
-          <ul class="terms">
-            <li>LangChain</li><li>Retrieval-augmented generation pipelines</li>
-            <li>Vector databases</li><li>ChromaDB</li><li>pgvector</li>
-            <li>Gemini API</li><li>MCP client and server development</li>
-            <li>Structured LLM output</li><li>Retry and fallback patterns</li>
-            <li>Agentic workflows</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Practices</h3>
-          <ul class="terms">
-            <li>Microservices</li><li>Event-driven architecture</li>
-            <li>Distributed systems</li><li>Multi-tenancy</li><li>System design</li>
-            <li>Infrastructure as code</li><li>Security by design</li><li>Agile</li>
-            <li>pytest</li><li>Go test</li><li>Vitest</li><li>React Testing Library</li>
-            <li>MSW</li><li>End-to-end tests</li>
-          </ul>
-        </div>
-
-        <div class="group">
-          <h3 class="group__name">Front end</h3>
-          <ul class="terms">
-            <li>React</li><li>Redux Toolkit and RTK Query</li><li>Tailwind CSS</li>
-            <li>HTMX</li><li>Jinja2</li><li>React Router</li><li>Vite</li>
-            <li>Radix UI</li><li>Quill</li><li>CodeMirror</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Operations -------------------------------------------------------- -->
-    <section class="band" id="operations" aria-labelledby="operations-title">
-      <div class="band__head">
-        <h2 class="band__title" id="operations-title">Operations and reliability</h2>
-        <p class="band__note">
-          Each principle carries the production evidence behind it. The hardware and
-          support decade below is where this instinct came from.
-        </p>
-      </div>
-
-      <dl class="creed">
-        <div>
-          <dt>Nothing ships without a pipeline</dt>
-          <dd>14 GitHub Actions workflows at ITSQ; a Buildx Bake matrix and three-environment pipeline at EventIQ.</dd>
-        </div>
-        <div>
-          <dt>Artefacts are signed, dependencies are pinned</dt>
-          <dd>cosign signing, action pinning, least-privilege tokens, Trivy scanning, Dependabot across five ecosystems.</dd>
-        </div>
-        <div>
-          <dt>Deploys do not take the service down</dt>
-          <dd>Signed-image verification, dependency-ordered rolling updates, health checks, automated database migrations, zero downtime in production.</dd>
-        </div>
-        <div>
-          <dt>The database is production infrastructure</dt>
-          <dd>Schema-aware Alembic with CI drift detection across eight migrations, PgBouncer pooling, scheduled pgbackrest backups, PostgreSQL Row-Level Security for tenant isolation.</dd>
-        </div>
-        <div>
-          <dt>The edge is hardened by default</dt>
-          <dd>TLS, security headers and rate limiting on Nginx; TLS and ACLs on the MQTT broker; automated SSL renewal.</dd>
-        </div>
-        <div>
-          <dt>You find out before the user does</dt>
-          <dd>Prometheus, Grafana and Loki with custom dashboards, alerting, and automated config sync.</dd>
-        </div>
-        <div>
-          <dt>The keyboard works at 2am</dt>
-          <dd>Runbooks, on-call incident triage from alert to root cause, documented resolution steps for recurring faults.</dd>
-        </div>
-        <div>
-          <dt>Access is least privilege by construction</dt>
-          <dd>RBAC, Row-Level Security, least-privilege CI tokens, secrets management.</dd>
-        </div>
-      </dl>
-    </section>
-
-    <!-- Earlier experience ------------------------------------------------ -->
-    <section class="band" id="earlier" aria-labelledby="earlier-title">
-      <div class="band__head">
-        <h2 class="band__title" id="earlier-title">Earlier experience</h2>
-        <p class="band__note">
-          Ten of thirteen years, before the pivot. Included because it is where the
-          operational judgement comes from.
-        </p>
-      </div>
-
-      <div class="tenure">
-        <div class="tenure__meta">
-          <p class="tenure__org">All In One</p>
-          <span class="tenure__span">Khartoum, Sudan</span>
-          <span class="tenure__span">2012 - 2023</span>
-        </div>
-
-        <div class="tenure__body">
-          <div class="role">
-            <h3 class="role__title">
-              Computer and Network Hardware Specialist
-              <span class="role__dates">November 2012 - December 2017</span>
-            </h3>
-
-            <div class="role__group">
-              <h4 class="role__group-name">Hardware and systems work</h4>
-              <ul class="ticks">
-                <li>
-                  Component-level hardware diagnostics and repair: internal circuitry,
-                  soldering, power delivery modules, and displays. Repairing extended
-                  the service life of business equipment rather than replacing it.
-                </li>
-                <li>
-                  Hardware upgrades and firmware and BIOS updates to optimise server and
-                  workstation configurations.
-                </li>
-                <li>
-                  Built and deployed hardened system images with anti-malware
-                  pre-installed, standardising rollouts across multi-user environments.
-                </li>
-                <li>
-                  Full device lifecycle: OS deployment and migration across Windows,
-                  Linux and macOS, in multi-user environments.
-                </li>
-              </ul>
             </div>
           </div>
+        </section>
 
-          <div class="role">
-            <h3 class="role__title">
-              Senior IT Support and Laptop Technician
-              <span class="role__dates">January 2018 - April 2023</span>
-            </h3>
-
-            <p class="metric metric--plain">30% fewer on-site dispatches</p>
-
-            <div class="role__group">
-              <h4 class="role__group-name">IT operations work</h4>
-              <ul class="ticks">
-                <li>
-                  Secure remote-access pipelines built for off-site troubleshooting,
-                  which cut on-site dispatches by 30 percent.
-                </li>
-                <li>
-                  User and email account administration, access permissions, and
-                  software licence tracking for enterprise clients, across Microsoft
-                  365, Google Workspace and Active Directory.
-                </li>
-                <li>
-                  Architecting scheduled backup routines and executing data recovery, to
-                  enforce client data integrity policy.
-                </li>
-                <li>
-                  IT asset, hardware and parts inventory records, used to optimise parts
-                  utilisation and shorten repair cycles, reducing repeat faults.
-                </li>
-                <li>
-                  Preventative maintenance programmes, and advice to clients on hardware
-                  lifecycle and configuration choices.
-                </li>
-                <li>
-                  Coordination with suppliers and service providers on parts, servicing
-                  and replacements.
-                </li>
-                <li>
-                  Tier 1 through Tier 3 support for enterprise and retail clients, under
-                  an issue-resolution SLA.
-                </li>
-              </ul>
-            </div>
+        <!-- Open source ------------------------------------------------------- -->
+        <section class="band" id="source" aria-labelledby="source-title">
+          <div class="band__head">
+            <h2 class="band__title" id="source-title">Open source</h2>
+            <p class="band__note">
+              Tools I built for my own machines. More on
+              <a href="https://github.com/Mohabdo21">GitHub</a>.
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Open source ------------------------------------------------------- -->
-    <section class="band" id="source" aria-labelledby="source-title">
-      <div class="band__head">
-        <h2 class="band__title" id="source-title">Open source</h2>
-        <p class="band__note">Tools I built for my own machines. More on
-          <a href="https://github.com/Mohabdo21">GitHub</a>.</p>
-      </div>
+          <ul class="repos">
+            <li class="repo">
+              <p class="repo__name">
+                <a href="https://github.com/Mohabdo21/linux-mcp">linux-mcp</a>
+                <span class="repo__lang">Go</span>
+              </p>
+              <p class="repo__desc">
+                Read-only MCP server exposing Linux system status to AI agents,
+                so a model can inspect the machine without holding any mutation
+                capability.
+              </p>
+            </li>
+            <li class="repo">
+              <p class="repo__name">
+                <a href="https://github.com/Mohabdo21/cpumon">cpumon</a>
+                <span class="repo__lang">Go</span>
+              </p>
+              <p class="repo__desc">
+                Real-time CPU monitor for Linux: temperatures, frequencies,
+                throttling and fan status read straight from hwmon and
+                lm-sensors.
+              </p>
+            </li>
+            <li class="repo">
+              <p class="repo__name">
+                <a href="https://github.com/Mohabdo21/arch-rss-notify"
+                  >arch-rss-notify</a
+                >
+                <span class="repo__lang">Go</span>
+              </p>
+              <p class="repo__desc">
+                Polls the Arch package feeds and raises a desktop notification
+                when updates are waiting.
+              </p>
+            </li>
+            <li class="repo">
+              <p class="repo__name">
+                <a href="https://github.com/Mohabdo21/git-commit.nvim"
+                  >git-commit.nvim</a
+                >
+                <span class="repo__lang">Lua</span>
+              </p>
+              <p class="repo__desc">
+                AI-powered commit messages for Neovim. Stage, select, or commit
+                everything in a single command.
+              </p>
+            </li>
+          </ul>
+        </section>
 
-      <ul class="repos">
-        <li class="repo">
-          <p class="repo__name">
-            <a href="https://github.com/Mohabdo21/linux-mcp">linux-mcp</a>
-            <span class="repo__lang">Go</span>
+        <!-- Education --------------------------------------------------------- -->
+        <section class="band" id="education" aria-labelledby="education-title">
+          <div class="band__head">
+            <h2 class="band__title" id="education-title">Education</h2>
+          </div>
+
+          <dl class="edu">
+            <div>
+              <dt>Sudan University of Science and Technology</dt>
+              <dd>
+                <span>
+                  B.Eng., Engineering and Technology of Industries. Khartoum,
+                  Sudan.
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>African Leadership Experience (ALX)</dt>
+              <dd>
+                <span>
+                  Software engineering programme, back-end specialisation,
+                  cohort C18. Online, Kenya. July 2023 - September 2024.
+                </span>
+                <span class="note">
+                  A training programme with a certificate, not an accredited
+                  degree.
+                  <a href="https://intranet.alxswe.com/certificates/mBMs2G9ycx"
+                    >Certificate</a
+                  >
+                </span>
+              </dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Contact ----------------------------------------------------------- -->
+        <section class="band" id="contact" aria-labelledby="contact-title">
+          <div class="band__head">
+            <h2 class="band__title" id="contact-title">Contact</h2>
+            <p class="band__note">
+              The CV is sent by email on request. There is no download link
+              here.
+            </p>
+          </div>
+
+          <dl class="reach">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a class="reach__email" href="mailto:mohannadabdo21@hotmail.com"
+                  >mohannadabdo21@hotmail.com</a
+                >
+              </dd>
+            </div>
+            <div>
+              <dt>LinkedIn</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/mohannad-abdul-aziz-babeker"
+                  rel="noopener"
+                  >linkedin.com/in/mohannad-abdul-aziz-babeker</a
+                >
+              </dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd>
+                <a href="https://github.com/Mohabdo21" rel="noopener"
+                  >github.com/Mohabdo21</a
+                >
+              </dd>
+            </div>
+          </dl>
+
+          <p class="foot">
+            <span
+              >Mohannad Abdulaziz Babeker - Backend and Platform Engineer</span
+            >
+            <span>Static site. No trackers, no cookies.</span>
           </p>
-          <p class="repo__desc">
-            Read-only MCP server exposing Linux system status to AI agents, so a model
-            can inspect the machine without holding any mutation capability.
-          </p>
-        </li>
-        <li class="repo">
-          <p class="repo__name">
-            <a href="https://github.com/Mohabdo21/cpumon">cpumon</a>
-            <span class="repo__lang">Go</span>
-          </p>
-          <p class="repo__desc">
-            Real-time CPU monitor for Linux: temperatures, frequencies, throttling and
-            fan status read straight from hwmon and lm-sensors.
-          </p>
-        </li>
-        <li class="repo">
-          <p class="repo__name">
-            <a href="https://github.com/Mohabdo21/arch-rss-notify">arch-rss-notify</a>
-            <span class="repo__lang">Go</span>
-          </p>
-          <p class="repo__desc">
-            Polls the Arch package feeds and raises a desktop notification when updates
-            are waiting.
-          </p>
-        </li>
-        <li class="repo">
-          <p class="repo__name">
-            <a href="https://github.com/Mohabdo21/git-commit.nvim">git-commit.nvim</a>
-            <span class="repo__lang">Lua</span>
-          </p>
-          <p class="repo__desc">
-            AI-powered commit messages for Neovim. Stage, select, or commit everything
-            in a single command.
-          </p>
-        </li>
-      </ul>
-    </section>
+        </section>
+      </main>
+    </div>
 
-    <!-- Education --------------------------------------------------------- -->
-    <section class="band" id="education" aria-labelledby="education-title">
-      <div class="band__head">
-        <h2 class="band__title" id="education-title">Education</h2>
-      </div>
-
-      <dl class="edu">
-        <div>
-          <dt>Sudan University of Science and Technology</dt>
-          <dd>
-            <span>
-              B.Eng., Engineering and Technology of Industries. Khartoum, Sudan.
-            </span>
-          </dd>
-        </div>
-        <div>
-          <dt>African Leadership Experience (ALX)</dt>
-          <dd>
-            <span>
-              Software engineering programme, back-end specialisation, cohort C18.
-              Online, Kenya. July 2023 - September 2024.
-            </span>
-            <span class="note">
-              A training programme with a certificate, not an accredited degree.
-              <a href="https://intranet.alxswe.com/certificates/mBMs2G9ycx">Certificate</a>
-            </span>
-          </dd>
-        </div>
-      </dl>
-    </section>
-
-    <!-- Contact ----------------------------------------------------------- -->
-    <section class="band" id="contact" aria-labelledby="contact-title">
-      <div class="band__head">
-        <h2 class="band__title" id="contact-title">Contact</h2>
-        <p class="band__note">
-          The CV is sent by email on request. There is no download link here.
-        </p>
-      </div>
-
-      <dl class="reach">
-        <div>
-          <dt>Email</dt>
-          <dd>
-            <a class="reach__email" href="mailto:mohannadabdo21@hotmail.com">mohannadabdo21@hotmail.com</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Phone</dt>
-          <dd><a href="tel:+971562553628">+971 56 255 3628</a></dd>
-        </div>
-        <div>
-          <dt>LinkedIn</dt>
-          <dd>
-            <a href="https://www.linkedin.com/in/mohannad-abdul-aziz-babeker" rel="noopener">linkedin.com/in/mohannad-abdul-aziz-babeker</a>
-          </dd>
-        </div>
-        <div>
-          <dt>GitHub</dt>
-          <dd>
-            <a href="https://github.com/Mohabdo21" rel="noopener">github.com/Mohabdo21</a>
-          </dd>
-        </div>
-      </dl>
-
-      <p class="foot">
-        <span>Mohannad Abdulaziz Babeker - Backend and Platform Engineer</span>
-        <span>Static site. No trackers, no cookies.</span>
-      </p>
-    </section>
-
-  </main>
-</div>
-
-<script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>

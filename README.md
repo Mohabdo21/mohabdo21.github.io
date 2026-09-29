@@ -10,6 +10,7 @@ Layout:
 - `script.js` - theme choice, mobile section menu, rail current-section
 - `fonts/` - self-hosted IBM Plex (Sans, Sans Condensed, Mono), latin subset
 - `favicon.svg`
+- `og.png` - 1200x630 link preview card
 
 The theme follows the OS preference until a reader picks one, which is stored
 in `localStorage`.

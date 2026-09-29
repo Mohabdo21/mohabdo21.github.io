@@ -46,11 +46,14 @@
   syncLabels();
 
   // Keep following the OS until the visitor makes an explicit choice.
-  matchMedia("(prefers-color-scheme: light)").addEventListener("change", function (event) {
-    if (stored()) return;
-    root.dataset.theme = event.matches ? "light" : "dark";
-    syncLabels();
-  });
+  matchMedia("(prefers-color-scheme: light)").addEventListener(
+    "change",
+    function (event) {
+      if (stored()) return;
+      root.dataset.theme = event.matches ? "light" : "dark";
+      syncLabels();
+    },
+  );
 
   /* --- Mobile section menu ------------------------------------------------ */
 
@@ -83,7 +86,9 @@
 
   /* --- Current section in the rail ---------------------------------------- */
 
-  var links = Array.prototype.slice.call(document.querySelectorAll(".rail__link"));
+  var links = Array.prototype.slice.call(
+    document.querySelectorAll(".rail__link"),
+  );
   var targets = links
     .map(function (link) {
       var section = document.querySelector(link.getAttribute("href"));
@@ -101,11 +106,15 @@
       // 40% down the viewport: a section counts as current once the reader is
       // properly inside it, not the moment it first clips the top edge.
       var line = window.scrollY + window.innerHeight * 0.4;
-      var atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+      var atBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
       var next = null;
 
       for (var i = 0; i < targets.length; i++) {
-        if (targets[i].section.getBoundingClientRect().top + window.scrollY <= line) {
+        if (
+          targets[i].section.getBoundingClientRect().top + window.scrollY <=
+          line
+        ) {
           next = targets[i];
         }
       }

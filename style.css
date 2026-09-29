@@ -91,7 +91,6 @@
   --accent: #f0a02e;
   --accent-ink: #10151c;
   --accent-line: #6b5120;
-  --live: #45d483;
   --focus: #7fc4ff;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.5);
 }
@@ -110,7 +109,6 @@
   --accent: #8a5008;
   --accent-ink: #ffffff;
   --accent-line: #c99a5e;
-  --live: #0f7a48;
   --focus: #0b5fae;
   --shadow: 0 1px 2px rgb(15 20 27 / 0.08);
 }
@@ -516,101 +514,310 @@ samp {
    Signature: the data path
    ========================================================================== */
 
+/* =============================================================================
+   The hero instrument
+   -----------------------------------------------------------------------------
+   The data path as a signal trace: one baseline, seven ticks on it, a head that
+   crosses once and draws a dim track behind itself. Each tick lights as the head
+   reaches it. Base styles are the settled state, so reduced motion gets a whole
+   trace instead of a blank one. Four constraints on the moving layers, each one a
+   bug that shipped once:
+   1. absolute, so they leave the grid; transform only, never width or left.
+   2. the head's box is one cell with the dot at its 50%, so travelling --n - 1 of
+      its own widths lands on each hop. Wider and the tail hangs past the track
+      and puts a scrollbar on the page.
+   3. the run scales 0.5/n to (n - 0.5)/n, never 0 to 1, so its leading edge is
+      the head instead of overtaking it.
+   4. every stop states transform, because an omitted one is interpolated away and
+      the hold drifts toward scaleX(1) while the head rewinds.
+   ========================================================================== */
+
 .pipe {
+  --pipe-cycle: 4.2s;
   margin-block-start: clamp(2.5rem, 1.5rem + 3vw, 4rem);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface);
-  padding: 1.1rem 1.2rem 1.25rem;
+  padding: 1.1rem 1.25rem 1.3rem;
   box-shadow: var(--shadow);
 }
 
 .pipe__cap {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 1.25rem;
   color: var(--ink-3);
   font-family: var(--font-display);
   font-size: var(--t-label);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-block-end: 0.95rem;
+  margin-block-end: 1.4rem;
+}
+
+/* The readout beside the caption: mono and untracked, so it reads as a value. */
+.pipe__stat {
+  margin-inline-start: auto;
+  font-family: var(--font-mono);
+  font-size: var(--t-meta);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .pipe__path {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+  margin-block-end: 0.65rem;
+  /* The list's bottom border is the track, so ticks, run and head share an edge. */
+  border-block-end: 1px solid var(--line-strong);
+}
+
+/* The dim track behind the head. Its leading edge is the head (see above). */
+.pipe__path::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: -1px;
+  block-size: 1px;
+  background: var(--accent-line);
+  transform-origin: left center;
+  animation: pipe-run var(--pipe-cycle) linear infinite;
+}
+
+.pipe__path::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: -3px;
+  inline-size: calc(100% / var(--n));
+  block-size: 5px;
+  background: radial-gradient(
+    circle 2.5px at 50% 50%,
+    var(--accent) 2.5px,
+    transparent 2.6px
+  );
+  /* Settled state: track lit, dot on the last hop. An animation outranks this. */
+  transform: translateX(calc((var(--n) - 1) * 100%));
+  animation: pipe-head var(--pipe-cycle) linear infinite;
 }
 
 .pipe__node {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: var(--surface-2);
+  padding-block-end: 0.75rem;
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  line-height: 1;
-  padding: 0.42rem 0.6rem;
-  white-space: nowrap;
+  line-height: 1.35;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Zero-width with a 1px inline-start border, so 50% lands on the cell centre. */
+.pipe__node::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 0;
+  inline-size: 0;
+  block-size: 0.75rem;
+  border-inline-start: 1px solid var(--line-strong);
+  animation: pipe-tick var(--pipe-cycle) linear infinite;
+  /* Hop i is reached at 0.04 + 0.66 * i / (--n - 1) of the cycle. A time, never a
+     percentage: the percentage form is dropped and all seven ticks blink at once. */
+  animation-delay: calc(
+    var(--pipe-cycle) * (0.04 + 0.66 * var(--i, 0) / (var(--n) - 1))
+  );
+}
+
+/* LoRaWAN is outside the boundary, so its tick is dashed like the SVGs' edge box. */
+.pipe__node--edge::before {
+  border-inline-start-style: dashed;
 }
 
 .pipe__node--edge {
-  border-style: dashed;
   color: var(--ink-2);
 }
 
-/* The link between two nodes: a static hairline, plus a pulse that travels it
-   left to right. Staggered delays make the seven links read as one flow. */
-.pipe__node:not(:last-child)::after {
-  content: "";
-  inline-size: 1.7rem;
-  block-size: 1px;
-  margin-inline: 0.5rem;
-  background: var(--line-strong);
+@keyframes pipe-run {
+  0% {
+    transform: scaleX(calc(0.5 / var(--n)));
+    opacity: 0;
+  }
+  4% {
+    transform: scaleX(calc(0.5 / var(--n)));
+    opacity: 1;
+  }
+  70% {
+    transform: scaleX(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 1;
+  }
+  82% {
+    transform: scaleX(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: scaleX(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 0;
+  }
 }
 
-.pipe__node:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  inset-block-start: 50%;
-  inset-inline-start: 100%;
-  inline-size: 5px;
-  block-size: 5px;
-  margin-block-start: -2.5px;
-  margin-inline-start: 0.5rem;
-  border-radius: 50%;
-  background: var(--live);
-  animation: pipe-pulse 2.4s linear infinite;
-  animation-delay: calc(var(--i, 0) * -0.34s);
-}
-
-@keyframes pipe-pulse {
-  from {
+@keyframes pipe-head {
+  0% {
     transform: translateX(0);
     opacity: 0;
   }
-  14% {
+  4% {
+    transform: translateX(0);
     opacity: 1;
   }
-  86% {
+  70% {
+    transform: translateX(calc((var(--n) - 1) * 100%));
     opacity: 1;
   }
-  to {
-    transform: translateX(1.7rem);
+  82% {
+    transform: translateX(calc((var(--n) - 1) * 100%));
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: translateX(calc((var(--n) - 1) * 100%));
     opacity: 0;
+  }
+}
+
+@keyframes pipe-tick {
+  0%,
+  6% {
+    border-inline-start-color: var(--accent);
+  }
+  14%,
+  100% {
+    border-inline-start-color: var(--line-strong);
+  }
+}
+
+/* Under 40rem the trace turns on its side rather than scrolling; equal row heights
+   keep the head's one-row box on each hop's centre. The vertical track is an
+   inline-start border, so --trace-inset pulls the layers back onto it. */
+@media (max-width: 40rem) {
+  .pipe__path {
+    --trace-inset: -1px;
+    grid-template-columns: 1fr;
+    margin-block-end: 0.65rem;
+    padding-inline-start: 1.1rem;
+    border-block-end: 0;
+    border-inline-start: 1px solid var(--line-strong);
+  }
+
+  .pipe__path::after {
+    inset-inline: var(--trace-inset) auto;
+    inset-block: 0;
+    inline-size: 1px;
+    block-size: auto;
+    transform-origin: center top;
+    animation-name: pipe-run-v;
+  }
+
+  .pipe__path::before {
+    inset-inline: calc(var(--trace-inset) - 2px) auto;
+    inset-block: 0 auto;
+    inline-size: 5px;
+    block-size: calc(100% / var(--n));
+    background: radial-gradient(
+      circle 2.5px at 50% 50%,
+      var(--accent) 2.5px,
+      transparent 2.6px
+    );
+    transform: translateY(calc((var(--n) - 1) * 100%));
+    animation-name: pipe-head-v;
+  }
+
+  .pipe__node {
+    padding-block: 0.55rem;
+    text-align: start;
+  }
+
+  .pipe__node::before {
+    inset-inline-start: calc(-1.1rem + var(--trace-inset));
+    inset-block-start: 50%;
+    inline-size: 0.5rem;
+    block-size: 0;
+    margin-block-start: -0.5px;
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--line-strong);
+    animation-name: pipe-tick-v;
+  }
+}
+
+@keyframes pipe-run-v {
+  0% {
+    transform: scaleY(calc(0.5 / var(--n)));
+    opacity: 0;
+  }
+  4% {
+    transform: scaleY(calc(0.5 / var(--n)));
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 1;
+  }
+  82% {
+    transform: scaleY(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: scaleY(calc((var(--n) - 0.5) / var(--n)));
+    opacity: 0;
+  }
+}
+
+@keyframes pipe-head-v {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  4% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(calc((var(--n) - 1) * 100%));
+    opacity: 1;
+  }
+  82% {
+    transform: translateY(calc((var(--n) - 1) * 100%));
+    opacity: 1;
+  }
+  90%,
+  100% {
+    transform: translateY(calc((var(--n) - 1) * 100%));
+    opacity: 0;
+  }
+}
+
+@keyframes pipe-tick-v {
+  0%,
+  6% {
+    border-block-start-color: var(--accent);
+  }
+  14%,
+  100% {
+    border-block-start-color: var(--line-strong);
   }
 }
 
 .pipe__foot {
-  margin-block-start: 1rem;
+  margin-block-start: 1.05rem;
   color: var(--ink-3);
   font-size: var(--t-meta);
-  max-inline-size: 46ch;
+  max-inline-size: 52ch;
 }
 
 /* =============================================================================
@@ -817,8 +1024,7 @@ samp {
   font-weight: 600;
 }
 
-/* Accent marks the paid engagements; the plain variant marks unpaid ones, so
-   colour can never imply a volunteer or personal build was client work. */
+/* Accent means paid, plain means unpaid, so colour never implies client work. */
 .entry__type--plain {
   border-color: var(--line-strong);
   color: var(--ink-2);
@@ -900,8 +1106,7 @@ code {
   padding: 0.5rem;
 }
 
-/* Wide enough that the 12.5px labels stay legible, narrow enough that the
-   figure fits its column on a desktop without a stray scrollbar. */
+/* Wide enough for the 12.5px labels, narrow enough to avoid a stray scrollbar. */
 .arch__scroll svg {
   display: block;
   min-inline-size: 46rem;
@@ -968,7 +1173,8 @@ code {
 
 .groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  /* Four columns, or auto-fit once the main column goes full width. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   border-block-start: 1px solid var(--line);
   border-inline-start: 1px solid var(--line);
@@ -1000,8 +1206,7 @@ code {
   color: var(--ink-2);
 }
 
-/* A long product or service name wraps inside its own item, never mid-token
-   across the grid. */
+/* A long name wraps inside its own item, never mid-token across the grid. */
 .terms li {
   overflow-wrap: anywhere;
 }
@@ -1359,6 +1564,10 @@ code {
   .band__note {
     flex-basis: 100%;
     text-align: start;
+  }
+
+  .groups {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   }
 }
 
